@@ -1,2 +1,31 @@
+# Maven target directory
+target/
+
+# Eclipse specific files
+.metadata/
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA specific files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Visual Studio Code specific files
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Maven wrapper
+.mvn/wrapper/
+
+# Gradle specific files
+gradle/
+.gradle/
+
+
 ./gensrc
-./target
