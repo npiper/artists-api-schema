@@ -25,7 +25,7 @@
             <executions>
                 <execution>
                     <id>generate-ascii-docs</id>
-                    <phase>prepare-package</phase>
+                    <phase>install</phase>
                     <goals>
                         <goal>generate</goal>
                     </goals>
@@ -38,7 +38,7 @@
                             <verbose>false</verbose>
                         </globalProperties>
                         <inputSpec>${project.basedir}/src/main/resources/openapi/artistsV1.yaml</inputSpec>
-                        <output>${project.basedir}/target/asciidoc/</output>
+                        <output>${project.basedir}/gensrc/main/asciidoc/</output>
                         <generatorName>asciidoc</generatorName>
                         <generateApiDocumentation>true</generateApiDocumentation>
                         <generateModelDocumentation>true</generateModelDocumentation>
@@ -77,6 +77,19 @@
       <version>${wagon-webdav-jackrabbitVersion}</version>
     </extension>
   </extensions>
+
+  <resources>
+    <resource>
+        <directory>${project.basedir}/gensrc/main/asciidoc/</directory>
+        <targetPath>asciidoc</targetPath>
+    </resource>
+
+    <resource>
+        <directory>${project.basedir}/src/main/resources/openapi/</directory>
+        <targetPath>openapi</targetPath>
+    </resource>
+
+</resources>
 
   </build>
 
