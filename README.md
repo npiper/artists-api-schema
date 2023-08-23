@@ -20,6 +20,11 @@ There is a POM file here that can be configured to parse an API Schema document 
             <version>5.2.1</version>
 ```
 
+
+## Sample generation
+
+See [SAMPLE.adoc](./SAMPLE.adoc)
+
 ## References
 
 https://github.com/OpenAPITools/openapi-generator/tree/master

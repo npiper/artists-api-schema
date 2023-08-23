@@ -1,0 +1,395 @@
+= Simple API
+team@openapitools.org
+1.0.0
+:toc: left
+:numbered:
+:toclevels: 3
+:source-highlighter: highlightjs
+:keywords: openapi, rest, Simple API 
+:specDir: 
+:snippetDir: 
+:generator-template: v1 2019-12-20
+:info-url: https://openapi-generator.tech
+:app-name: Simple API
+
+== Introduction
+A simple API to illustrate OpenAPI concepts
+
+
+// markup not found, no include::{specDir}intro.adoc[opts=optional]
+
+
+== Access
+
+* *HTTP Basic* Authentication _BasicAuth_
+
+
+
+
+
+== Endpoints
+
+
+[.Default]
+=== Default
+
+
+[.artistsGet]
+==== artistsGet
+    
+`GET /artists`
+
+
+
+===== Description 
+
+Returns a list of artists
+
+
+// markup not found, no include::{specDir}artists/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| limit 
+| Limits the number of items on a page  
+| - 
+| null 
+|  
+
+| offset 
+| Specifies the page number of the artists to be displayed  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+array[<<Artist>>]
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successfully returned a list of artists
+| List[<<Artist>>] 
+
+
+| 400
+| Invalid request
+|  <<inline_response_400>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}artists/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}artists/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :artists/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}artists/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.artistsPost]
+==== artistsPost
+    
+`POST /artists`
+
+
+
+===== Description 
+
+Lets a user post a new artist
+
+
+// markup not found, no include::{specDir}artists/POST/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+====== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Artist 
+|  <<Artist>> 
+| X 
+|  
+|  
+
+|===         
+
+
+
+
+
+===== Return Type
+
+
+
+-
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successfully created a new artist
+|  <<>>
+
+
+| 400
+| Invalid request
+|  <<inline_response_400>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}artists/POST/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}artists/POST/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :artists/POST/POST.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}artists/POST/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.artistsUsernameGet]
+==== artistsUsernameGet
+    
+`GET /artists/{username}`
+
+
+
+===== Description 
+
+Obtain information about an artist from his or her unique username
+
+
+// markup not found, no include::{specDir}artists/\{username\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| username 
+|   
+| X 
+| null 
+|  
+
+|===         
+
+
+
+
+
+
+===== Return Type
+
+<<inline_response_200>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| Successfully returned an artist
+|  <<inline_response_200>>
+
+
+| 400
+| Invalid request
+|  <<inline_response_400>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}artists/\{username\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}artists/\{username\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :artists/{username}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}artists/\{username\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[#models]
+== Models
+
+
+[#Artist]
+=== _Artist_ 
+
+
+
+[.fields-Artist]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| artist_name 
+|  
+| String  
+| 
+|  
+
+| artist_genre 
+|  
+| String  
+| 
+|  
+
+| albums_recorded 
+|  
+| Integer  
+| 
+|  
+
+| username 
+| X 
+| String  
+| 
+|  
+
+|===
+
+
+[#InlineResponse200]
+=== _InlineResponse200_ 
+
+
+
+[.fields-InlineResponse200]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| artist_name 
+|  
+| String  
+| 
+|  
+
+| artist_genre 
+|  
+| String  
+| 
+|  
+
+| albums_recorded 
+|  
+| Integer  
+| 
+|  
+
+|===
+
+
+[#InlineResponse400]
+=== _InlineResponse400_ 
+
+
+
+[.fields-InlineResponse400]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| message 
+|  
+| String  
+| 
+|  
+
+|===
+
+
