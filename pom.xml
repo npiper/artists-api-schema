@@ -18,6 +18,24 @@
   </dependencies>
   <build>
     <plugins>
+
+     <!-- Clean the ./gensrc directory -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+            <filesets>
+                <fileset>
+                    <directory>./gensrc</directory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                </fileset>
+            </filesets>
+        </configuration>
+    </plugin>
+
         <plugin>
             <groupId>org.openapitools</groupId>
             <artifactId>openapi-generator-maven-plugin</artifactId>
@@ -37,6 +55,7 @@
                             <modelTests>false</modelTests>
                             <verbose>false</verbose>
                         </globalProperties>
+                        <dryRun>true</dryRun>
                         <inputSpec>${project.basedir}/src/main/resources/openapi/artistsV1.yaml</inputSpec>
                         <output>${project.basedir}/gensrc/main/asciidoc/</output>
                         <generatorName>asciidoc</generatorName>
@@ -49,11 +68,44 @@
                         <configOptions>                     
                             <useIntroduction>true</useIntroduction>
                             <delegatePattern>false</delegatePattern>
-                            <useMethodAndPath>false</useMethodAndPath>
+                            <useMethodAndPath>true</useMethodAndPath>
                             <prependFormOrBodyParameters>false</prependFormOrBodyParameters>                    
                         </configOptions>
                     </configuration>
                 </execution>
+                <execution>
+                  <id>generate-markdown</id>
+                  <phase>install</phase>
+                  <goals>
+                      <goal>generate</goal>
+                  </goals>
+                  <configuration>
+                      <globalProperties>
+                          <apiDocs>true</apiDocs>
+                          <apiModels>false</apiModels>
+                          <apiTests>false</apiTests>
+                          <modelTests>false</modelTests>
+                          <verbose>false</verbose>
+                      </globalProperties>
+                      <dryRun>true</dryRun>
+                      <inputSpec>${project.basedir}/src/main/resources/openapi/artistsV1.yaml</inputSpec>
+                      <output>${project.basedir}/gensrc/main/markdown/</output>
+                      <generatorName>markdown</generatorName>
+                      <generateApiDocumentation>true</generateApiDocumentation>
+                      <generateModelDocumentation>true</generateModelDocumentation>
+                      <generateSupportingFiles>true</generateSupportingFiles>
+                      <groupId>${project.groupId}</groupId>
+                      <artifactId>${project.artifactId}</artifactId>
+                      <!--<templateDirectory>${project.basedir}/src/asciidoc/templates</templateDirectory> -->
+                      <configOptions>                     
+                          <useIntroduction>true</useIntroduction>
+                          <delegatePattern>false</delegatePattern>
+                          <useMethodAndPath>true</useMethodAndPath>
+                          <prependFormOrBodyParameters>false</prependFormOrBodyParameters>                    
+                      </configOptions>
+                  </configuration>
+              </execution>
+
             </executions>
         </plugin>
 
