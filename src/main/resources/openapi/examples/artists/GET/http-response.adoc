@@ -1,8 +1,12 @@
-```
+.Show Http Response Body
+[%collapsible]
+====
+....
 [{
   "artist_name": "John Smith",
   "artist_genre": "Rock",
   "albums_recorded": 10,
   "username": "john_smith"
 }]
-```
+....
+====
